@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Tree Restaurant | Lush Garden Dining & Authentic Cuisine • State House Rd, Kakamega</title>
+    <meta name="description" content="Double Tree Restaurant along State House Rd, Kakamega. Authentic Kenyan cuisine, Nyama Choma, Kuku Kienyeji & lush garden dining. Open daily until 22:00. Call 0715 655 542.">
+
+    <!-- Google Fonts: Fraunces & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Fraunces', 'serif'],
+                    },
+                    colors: {
+                        dt: {
+                            forest: '#12372A',     // Deep lush canopy green
+                            emerald: '#1E5631',    // Vibrant double-tree leaf green
+                            espresso: '#2C1A12',   // Warm mahogany / roasted coffee
+                            amber: '#D97706',      // Golden saffron & warm lantern glow
+                            gold: '#F59E0B',       // Highlight amber
+                            cream: '#FAF6F0',      // Warm artisanal parchment
+                            sand: '#F1E9DC',       // Secondary warm surface
+                        }
+                    },
+                    boxShadow: {
+                        'lush': '0 20px 45px -12px rgba(18, 55, 42, 0.16)',
+                        'warm': '0 10px 30px -5px rgba(44, 26, 18, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Brand in Motion: Swaying Double Tree Canopy */
+        @keyframes treeSwayLeft {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(-3.5deg) scale(1.03); }
+        }
+        @keyframes treeSwayRight {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(3.5deg) scale(1.03); }
+        }
+        .tree-left {
+            transform-origin: 38% 85%;
+            animation: treeSwayLeft 4.8s ease-in-out infinite;
+        }
+        .tree-right {
+            transform-origin: 62% 85%;
+            animation: treeSwayRight 5.4s ease-in-out infinite;
+        }
+
+        /* Continuous Kinetic Marquee Ticker */
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 28s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Floating Steam / Spice Ember Particles */
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.8); opacity: 0; }
+            35% { opacity: 0.65; }
+            100% { transform: translateY(-95px) scale(1.35); opacity: 0; }
+        }
+        .steam-particle {
+            animation: floatUp 4.5s ease-in-out infinite;
+        }
+        .steam-delay-1 { animation-delay: 1.2s; }
+        .steam-delay-2 { animation-delay: 2.6s; }
+        .steam-delay-3 { animation-delay: 3.7s; }
+
+        /* Gentle Hero Card Float */
+        @keyframes gentleBob {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-bob {
+            animation: gentleBob 6s ease-in-out infinite;
+        }
+        .animate-bob-delayed {
+            animation: gentleBob 7s ease-in-out 1.5s infinite;
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Subtle Botanical Background Dots */
+        .botanical-dots {
+            background-image: radial-gradient(#12372A 0.85px, transparent 0.85px);
+            background-size: 22px 22px;
+        }
+    </style>
+</head>
+<body class="bg-dt-cream text-dt-espresso antialiased selection:bg-dt-forest selection:text-dt-gold overflow-x-hidden">
+
+    <!-- TOP LIVE STATUS & QUICK ACTION RIBBON -->
+    <div class="bg-dt-espresso text-dt-cream text-xs sm:text-sm py-2.5 px-4 border-b border-amber-500/20">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+            <!-- Dynamic Kenya EAT Status -->
+            <div class="flex items-center gap-2.5">
+                <span id="status-dot-wrapper" class="relative flex h-2.5 w-2.5">
+                    <span id="status-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span id="status-dot" class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+                </span>
+                <span id="live-hours-badge" class="font-bold tracking-wide uppercase text-amber-300 text-xs">
+                    OPEN NOW • CLOSES AT 22:00
+                </span>
+                <span class="hidden md:inline text-amber-200/40">|</span>
+                <span class="hidden md:inline text-amber-100/90 text-xs">
+                    <i class="fa-solid fa-location-dot text-dt-gold mr-1"></i> Along State House Rd, Kakamega
+                </span>
+            </div>
+
+            <!-- Direct Click-to-Call & WhatsApp -->
+            <div class="flex items-center gap-3">
+                <a href="tel:+254715655542" class="inline-flex items-center gap-1.5 bg-dt-forest hover:bg-dt-emerald text-white font-semibold px-3 py-1 rounded-full transition border border-emerald-600/40">
+                    <i class="fa-solid fa-phone text-dt-gold text-xs"></i>
+                    <span>0715 655 542</span>
+                </a>
+                <a href="https://wa.me/254715655542?text=Hello%20Double%20Tree%20Restaurant,%20I%20would%20like%20to%20place%20an%20order%20or%20book%20a%20table." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-dt-amber hover:bg-dt-gold text-dt-espresso font-bold px-3 py-1 rounded-full transition shadow-sm">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span>Order / Reserve</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- STICKY NAVIGATION WITH ANIMATED DOUBLE TREE EMBLEM -->
+    <header class="sticky top-0 z-40 bg-dt-cream/95 backdrop-blur-md border-b border-dt-forest/10 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Animated Dual-Tree Brand Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-dt-forest flex items-center justify-center shadow-md border border-amber-400/30 group-hover:scale-105 transition">
+                        <!-- Custom Animated Double Tree SVG -->
+                        <svg viewBox="0 0 64 64" class="w-9 h-9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- Warm Golden Sun Halo -->
+                            <circle cx="32" cy="24" r="14" fill="#F59E0B" fill-opacity="0.22"/>
+                            <!-- Left Tree Canopy & Trunk -->
+                            <g class="tree-left">
+                                <path d="M23 48V34" stroke="#D97706" stroke-width="2.6" stroke-linecap="round"/>
+                                <path d="M23 15C16.5 15 12 20.2 12 26C12 31.2 16.5 35 23 35C29.5 35 33 31.2 33 26C33 20.2 29.5 15 23 15Z" fill="#22C55E" fill-opacity="0.88"/>
+                            </g>
+                            <!-- Right Tree Canopy & Trunk -->
+                            <g class="tree-right">
+                                <path d="M41 48V32" stroke="#F59E0B" stroke-width="2.6" stroke-linecap="round"/>
+                                <path d="M41 12C34 12 29 17.8 29 24.5C29 30.2 34 34 41 34C48 34 52 30.2 52 24.5C52 17.8 48 12 41 12Z" fill="#10B981" fill-opacity="0.92"/>
+                            </g>
+                            <!-- Ground Mound -->
+                            <path d="M12 49C20 46.5 44 46.5 52 49" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-serif font-extrabold text-xl sm:text-2xl tracking-tight text-dt-forest block leading-none">
+                            Double Tree
+                        </span>
+                        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-dt-amber block mt-1">
+                            Restaurant • Kakamega
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-8 text-sm font-bold text-dt-espresso/80">
+                    <a href="#home" class="hover:text-dt-forest transition">Home</a>
+                    <a href="#menu" class="hover:text-dt-forest transition">Signature Menu</a>
+                    <a href="#gallery" class="hover:text-dt-forest transition">Ambiance &amp; Gallery</a>
+                    <a href="#order-reserve" class="hover:text-dt-forest transition">Table &amp; Order</a>
+                    <a href="#location" class="hover:text-dt-forest transition">State House Rd Map</a>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-3">
+                    <a href="#order-reserve" class="hidden sm:inline-flex items-center gap-2 bg-dt-forest hover:bg-dt-emerald text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-sm transition transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-utensils text-dt-gold"></i>
+                        <span>Reserve / Order</span>
+                    </a>
+                    <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="lg:hidden p-2.5 rounded-xl bg-dt-sand text-dt-forest border border-dt-forest/15">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-dt-cream border-t border-dt-forest/10 px-4 pt-3 pb-6 space-y-2 shadow-xl">
+            <a href="#home" class="mobile-link block px-4 py-3 rounded-xl font-bold text-dt-forest hover:bg-dt-sand">Home</a>
+            <a href="#menu" class="mobile-link block px-4 py-3 rounded-xl font-bold text-dt-forest hover:bg-dt-sand">Signature Menu</a>
+            <a href="#gallery" class="mobile-link block px-4 py-3 rounded-xl font-bold text-dt-forest hover:bg-dt-sand">Ambiance &amp; Gallery</a>
+            <a href="#order-reserve" class="mobile-link block px-4 py-3 rounded-xl font-bold text-dt-forest hover:bg-dt-sand">Book a Table / Order</a>
+            <a href="#location" class="mobile-link block px-4 py-3 rounded-xl font-bold text-dt-forest hover:bg-dt-sand">Location &amp; Map</a>
+            <div class="pt-2 grid grid-cols-2 gap-2.5">
+                <a href="tel:+254715655542" class="text-center bg-dt-sand text-dt-forest font-bold py-3 rounded-xl border border-dt-forest/20 text-sm">
+                    <i class="fa-solid fa-phone mr-1"></i> Call Now
+                </a>
+                <a href="#order-reserve" class="mobile-link text-center bg-dt-forest text-white font-bold py-3 rounded-xl text-sm">
+                    Book Table
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH BRAND IN MOTION -->
+    <section id="home" class="relative pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
+        <!-- Subtle Botanical Pattern & Warm Radial Glows -->
+        <div class="absolute inset-0 botanical-dots opacity-[0.06] pointer-events-none"></div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-dt-amber/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 -left-24 w-96 h-96 bg-dt-emerald/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Expressive Kinetic Typography & CTAs -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-dt-sand border border-dt-amber/30 text-dt-espresso px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-2xs">
+                        <i class="fa-solid fa-leaf text-dt-emerald"></i>
+                        <span>Along State House Rd, Kakamega • Open Until 22:00</span>
+                    </div>
+
+                    <h1 class="font-serif font-extrabold text-4xl sm:text-5xl lg:text-6xl text-dt-forest leading-[1.1] tracking-tight">
+                        Where Lush Canopy Meets <span class="text-dt-amber italic">Authentic</span> Flavor.
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-dt-espresso/80 leading-relaxed max-w-xl">
+                        Experience Kakamega’s warmest culinary retreat along State House Road. From sizzling charcoal-grilled Nyama Choma and traditional Ingokho to refreshing garden platters, every meal is crafted fresh until <strong>22:00</strong>.
+                    </p>
+
+                    <!-- Primary Hero Actions -->
+                    <div class="flex flex-col sm:flex-row gap-3.5 pt-2">
+                        <a href="#menu" class="inline-flex items-center justify-center gap-2.5 bg-dt-forest hover:bg-dt-emerald text-white font-bold px-7 py-4 rounded-2xl shadow-lush transition transform hover:-translate-y-0.5 text-base">
+                            <i class="fa-solid fa-fire-burner text-dt-gold"></i>
+                            <span>Explore Our Menu</span>
+                        </a>
+                        <a href="tel:+254715655542" class="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-dt-sand text-dt-forest border-2 border-dt-forest/20 font-bold px-7 py-4 rounded-2xl transition text-base">
+                            <i class="fa-solid fa-phone-volume text-dt-amber"></i>
+                            <span>Call 0715 655 542</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Highlights Row -->
+                    <div class="grid grid-cols-3 gap-3 pt-4 border-t border-dt-forest/10">
+                        <div>
+                            <p class="font-serif font-extrabold text-xl sm:text-2xl text-dt-forest">22:00</p>
+                            <p class="text-xs font-semibold text-dt-espresso/70">Daily Closing Time</p>
+                        </div>
+                        <div>
+                            <p class="font-serif font-extrabold text-xl sm:text-2xl text-dt-amber">100%</p>
+                            <p class="text-xs font-semibold text-dt-espresso/70">Fresh Local Ingredients</p>
+                        </div>
+                        <div>
+                            <p class="font-serif font-extrabold text-xl sm:text-2xl text-dt-emerald">Garden</p>
+                            <p class="text-xs font-semibold text-dt-espresso/70">&amp; Indoor Seating</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Layered Motion Visual Collage with Steam Particles -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative mx-auto max-w-lg lg:max-w-none">
+                        
+                        <!-- Rising Steam / Spice Aroma Particles -->
+                        <div class="absolute -top-6 left-1/3 z-20 flex gap-4 pointer-events-none">
+                            <span class="steam-particle w-3 h-3 rounded-full bg-amber-400/50 blur-[2px]"></span>
+                            <span class="steam-particle steam-delay-1 w-4 h-4 rounded-full bg-white/70 blur-[3px]"></span>
+                            <span class="steam-particle steam-delay-2 w-2.5 h-2.5 rounded-full bg-emerald-400/50 blur-[2px]"></span>
+                            <span class="steam-particle steam-delay-3 w-3.5 h-3.5 rounded-full bg-amber-300/60 blur-[3px]"></span>
+                        </div>
+
+                        <!-- Main Hero Dish Photography Card -->
+                        <div class="relative rounded-3xl overflow-hidden shadow-lush border-4 border-white animate-bob bg-dt-forest">
+                            <img 
+                                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80" 
+                                alt="Charcoal Grilled Nyama Choma Platter at Double Tree Restaurant Kakamega" 
+                                class="w-full h-80 sm:h-[420px] object-cover hover:scale-105 transition duration-700"
+                                onerror="this.onerror=null; this.src='https://placehold.co/800x600/12372A/F59E0B?text=Double+Tree+Signature+Grill';"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-dt-espresso/85 via-dt-espresso/20 to-transparent"></div>
+                            <div class="absolute bottom-5 left-5 right-5 text-white flex items-end justify-between gap-4">
+                                <div>
+                                    <span class="bg-dt-amber text-dt-espresso text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">
+                                        House Specialty
+                                    </span>
+                                    <h2 class="font-serif font-bold text-xl sm:text-2xl mt-2">Charcoal Nyama Choma &amp; Kachumbari</h2>
+                                    <p class="text-xs text-amber-100/90 mt-0.5">Slow-roasted prime cuts served sizzling hot with brown ugali</p>
+                                </div>
+                                <a href="#order-reserve" onclick="quickAddItem('Double Tree Signature Nyama Choma (1kg)', 1200)" class="shrink-0 w-11 h-11 rounded-2xl bg-dt-gold hover:bg-white text-dt-espresso flex items-center justify-center font-bold shadow-lg transition" title="Quick Order">
+                                    <i class="fa-solid fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Floating Garden Ambiance Secondary Card -->
+                        <div class="hidden sm:flex items-center gap-3.5 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-dt-forest/10 absolute -bottom-6 -left-6 max-w-xs animate-bob-delayed z-20">
+                            <img 
+                                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=300&q=80" 
+                                alt="Double Tree Lush Garden Dining" 
+                                class="w-16 h-16 rounded-xl object-cover shrink-0"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/1E5631/FFFFFF?text=Garden';"
+                            >
+                            <div>
+                                <div class="flex items-center gap-1 text-dt-amber text-xs">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="font-serif font-bold text-sm text-dt-forest mt-0.5">Serene State House Rd</p>
+                                <p class="text-[11px] text-dt-espresso/70">Shaded outdoor trees &amp; cozy indoor booths</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KINETIC BRAND IN MOTION MARQUEE TICKER -->
+    <div class="bg-dt-forest text-dt-cream py-3.5 border-y border-amber-400/25 overflow-hidden select-none">
+        <div class="animate-marquee flex items-center gap-8 text-xs sm:text-sm font-extrabold tracking-widest uppercase">
+            <span class="flex items-center gap-3"><i class="fa-solid fa-tree text-dt-gold"></i> DOUBLE TREE RESTAURANT KAKAMEGA</span>
+            <span class="text-dt-gold">•</span>
+            <span class="flex items-center gap-3"><i class="fa-solid fa-fire text-dt-amber"></i> SIZZLING NYAMA CHOMA &amp; KUKU KIENYEJI</span>
+            <span class="text-dt-gold">•</span>
+            <span class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-emerald-400"></i> ALONG STATE HOUSE RD, KAKAMEGA</span>
+            <span class="text-dt-gold">•</span>
+            <span class="flex items-center gap-3"><i class="fa-solid fa-clock text-dt-gold"></i> OPEN DAILY UNTIL 22:00</span>
+            <span class="text-dt-gold">•</span>
+            <span class="flex items-center gap-3"><i class="fa-solid fa-phone text-emerald-400"></i> CALL / WHATSAPP: 0715 655 542</span>
+            <span class="text-dt-gold">•</span>
+            <!-- Duplicated seamlessly for infinite loop -->
+            <span class="flex items-center gap-3"><i class="fa-solid fa-tree text-dt-gold"></i> DOUBLE TREE RESTAURANT KAKAMEGA</span>
+            <span class="text-dt-gold">•</span>
+            <span class="flex items-center gap-3"><i class="fa-solid fa-fire text-dt-amber"></i> SIZZLING NYAMA CHOMA &amp; KUKU KIENYEJI</span>
+            <span class="text-dt-gold">•</span>
+            <span class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-emerald-400"></i> ALONG STATE HOUSE RD, KAKAMEGA</span>
+            <span class="text-dt-gold">•</span>
+            <span class="flex items-center gap-3"><i class="fa-solid fa-clock text-dt-gold"></i> OPEN DAILY UNTIL 22:00</span>
+            <span class="text-dt-gold">•</span>
+            <span class="flex items-center gap-3"><i class="fa-solid fa-phone text-emerald-400"></i> CALL / WHATSAPP: 0715 655 542</span>
+            <span class="text-dt-gold">•</span>
+        </div>
+    </div>
+
+    <!-- SIGNATURE MENU SECTION WITH INTERACTIVE FILTER & QUICK-ADD CART -->
+    <section id="menu" class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+                <span class="text-dt-amber font-extrabold text-xs sm:text-sm uppercase tracking-widest">Crafted With Passion</span>
+                <h2 class="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-dt-forest mt-2">
+                    Our Signature Menu
+                </h2>
+                <p class="text-dt-espresso/75 mt-3 text-sm sm:text-base">
+                    Authentic Western Kenya delicacies, flame-grilled meats, hearty continental classics, and fresh tropical juices. Tap <strong>"+ Add to Order"</strong> to build your meal for pickup, delivery, or table pre-order.
+                </p>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div class="flex flex-wrap justify-center gap-2.5 mb-12 reveal" id="menu-filters">
+                <button data-category="all" class="menu-filter-btn active bg-dt-forest text-white font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm shadow-sm transition">
+                    All Dishes
+                </button>
+                <button data-category="grill" class="menu-filter-btn bg-dt-cream hover:bg-dt-sand text-dt-espresso font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm border border-dt-forest/15 transition">
+                    Nyama Choma &amp; Grill
+                </button>
+                <button data-category="local" class="menu-filter-btn bg-dt-cream hover:bg-dt-sand text-dt-espresso font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm border border-dt-forest/15 transition">
+                    Kenyan &amp; Luhya Classics
+                </button>
+                <button data-category="mains" class="menu-filter-btn bg-dt-cream hover:bg-dt-sand text-dt-espresso font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm border border-dt-forest/15 transition">
+                    Chef's Continental Mains
+                </button>
+                <button data-category="drinks" class="menu-filter-btn bg-dt-cream hover:bg-dt-sand text-dt-espresso font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm border border-dt-forest/15 transition">
+                    Fresh Juices &amp; Desserts
+                </button>
+            </div>
+
+            <!-- Menu Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7" id="menu-grid">
+                
+                <!-- Dish 1 -->
+                <article data-category="grill" class="menu-card reveal group bg-dt-cream rounded-3xl overflow-hidden border border-dt-forest/10 hover:border-dt-amber/60 shadow-warm hover:shadow-lush transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-dt-forest">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" alt="Double Tree Prime Mbuzi Choma" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/12372A/F59E0B?text=Prime+Mbuzi+Choma';">
+                            <span class="absolute top-3.5 left-3.5 bg-dt-forest/90 backdrop-blur-xs text-dt-gold text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                                Best Seller
+                            </span>
+                            <span class="absolute bottom-3.5 right-3.5 bg-white/95 text-dt-forest font-extrabold text-sm px-3.5 py-1.5 rounded-xl shadow">
+                                KES 1,200
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-serif font-bold text-xl text-dt-forest">Prime Mbuzi Choma (1 Kg)</h3>
+                            <p class="text-dt-espresso/75 text-sm mt-2 leading-relaxed">
+                                Tender Kakamega goat ribs slow-roasted over natural hardwood embers, served with tangy kachumbari, roast potatoes, or hot ugali.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button onclick="quickAddItem('Prime Mbuzi Choma (1 Kg)', 1200)" class="w-full bg-white hover:bg-dt-forest text-dt-forest hover:text-white border border-dt-forest/20 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-solid fa-plus text-dt-amber"></i>
+                            <span>Add to Order</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Dish 2 -->
+                <article data-category="local" class="menu-card reveal group bg-dt-cream rounded-3xl overflow-hidden border border-dt-forest/10 hover:border-dt-amber/60 shadow-warm hover:shadow-lush transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-dt-forest">
+                            <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=800&q=80" alt="Authentic Kuku Kienyeji Stew" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/2C1A12/F59E0B?text=Kuku+Kienyeji+%26+Ugali';">
+                            <span class="absolute top-3.5 left-3.5 bg-dt-amber text-dt-espresso text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">
+                                Kakamega Pride
+                            </span>
+                            <span class="absolute bottom-3.5 right-3.5 bg-white/95 text-dt-forest font-extrabold text-sm px-3.5 py-1.5 rounded-xl shadow">
+                                KES 950
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-serif font-bold text-xl text-dt-forest">Traditional Ingokho (Kuku Kienyeji)</h3>
+                            <p class="text-dt-espresso/75 text-sm mt-2 leading-relaxed">
+                                Free-range local chicken simmered in rich heirloom tomatoes, onions, and traditional herbs, paired with brown wimbi ugali and kunde/managu greens.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button onclick="quickAddItem('Traditional Ingokho (Kuku Kienyeji)', 950)" class="w-full bg-white hover:bg-dt-forest text-dt-forest hover:text-white border border-dt-forest/20 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-solid fa-plus text-dt-amber"></i>
+                            <span>Add to Order</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Dish 3 -->
+                <article data-category="local" class="menu-card reveal group bg-dt-cream rounded-3xl overflow-hidden border border-dt-forest/10 hover:border-dt-amber/60 shadow-warm hover:shadow-lush transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-dt-forest">
+                            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80" alt="Whole Crispy Lake Tilapia" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1E5631/FFFFFF?text=Whole+Lake+Tilapia';">
+                            <span class="absolute top-3.5 left-3.5 bg-dt-emerald text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                                Fresh Catch
+                            </span>
+                            <span class="absolute bottom-3.5 right-3.5 bg-white/95 text-dt-forest font-extrabold text-sm px-3.5 py-1.5 rounded-xl shadow">
+                                KES 850
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-serif font-bold text-xl text-dt-forest">Whole Crispy Lake Tilapia</h3>
+                            <p class="text-dt-espresso/75 text-sm mt-2 leading-relaxed">
+                                Golden-fried or wet-fry whole Lake Victoria tilapia glazed in garlic-coriander sauce, served with steamed ugali and sautéed local greens.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button onclick="quickAddItem('Whole Crispy Lake Tilapia', 850)" class="w-full bg-white hover:bg-dt-forest text-dt-forest hover:text-white border border-dt-forest/20 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-solid fa-plus text-dt-amber"></i>
+                            <span>Add to Order</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Dish 4 -->
+                <article data-category="grill" class="menu-card reveal group bg-dt-cream rounded-3xl overflow-hidden border border-dt-forest/10 hover:border-dt-amber/60 shadow-warm hover:shadow-lush transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-dt-forest">
+                            <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=800&q=80" alt="Double Tree Family Grill Platter" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/2C1A12/F59E0B?text=Double+Tree+Platter';">
+                            <span class="absolute top-3.5 left-3.5 bg-dt-forest/90 text-dt-gold text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                                For Sharing (3–4)
+                            </span>
+                            <span class="absolute bottom-3.5 right-3.5 bg-white/95 text-dt-forest font-extrabold text-sm px-3.5 py-1.5 rounded-xl shadow">
+                                KES 2,600
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-serif font-bold text-xl text-dt-forest">Double Tree Canopy Feast Platter</h3>
+                            <p class="text-dt-espresso/75 text-sm mt-2 leading-relaxed">
+                                A generous sharing board of chargrilled mbuzi, BBQ chicken wings, beef mishkaki skewers, masala chips, onion rings, and smoky pepper dip.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button onclick="quickAddItem('Double Tree Canopy Feast Platter', 2600)" class="w-full bg-white hover:bg-dt-forest text-dt-forest hover:text-white border border-dt-forest/20 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-solid fa-plus text-dt-amber"></i>
+                            <span>Add to Order</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Dish 5 -->
+                <article data-category="mains" class="menu-card reveal group bg-dt-cream rounded-3xl overflow-hidden border border-dt-forest/10 hover:border-dt-amber/60 shadow-warm hover:shadow-lush transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-dt-forest">
+                            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&q=80" alt="Peppercorn Grilled Beef Steak" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/12372A/FFFFFF?text=Peppercorn+Fillet+Steak';">
+                            <span class="absolute top-3.5 left-3.5 bg-dt-espresso/85 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                                Chef's Special
+                            </span>
+                            <span class="absolute bottom-3.5 right-3.5 bg-white/95 text-dt-forest font-extrabold text-sm px-3.5 py-1.5 rounded-xl shadow">
+                                KES 1,100
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-serif font-bold text-xl text-dt-forest">Herb-Crusted Fillet Steak</h3>
+                            <p class="text-dt-espresso/75 text-sm mt-2 leading-relaxed">
+                                Juicy aged beef tenderloin seared to perfection with crushed black peppercorn jus, garlic mashed potatoes, and buttered garden vegetables.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button onclick="quickAddItem('Herb-Crusted Fillet Steak', 1100)" class="w-full bg-white hover:bg-dt-forest text-dt-forest hover:text-white border border-dt-forest/20 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-solid fa-plus text-dt-amber"></i>
+                            <span>Add to Order</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Dish 6 -->
+                <article data-category="drinks" class="menu-card reveal group bg-dt-cream rounded-3xl overflow-hidden border border-dt-forest/10 hover:border-dt-amber/60 shadow-warm hover:shadow-lush transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-dt-forest">
+                            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80" alt="Tropical Passion Mint Pitcher" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/D97706/FFFFFF?text=Tropical+Garden+Juice';">
+                            <span class="absolute top-3.5 left-3.5 bg-dt-amber text-dt-espresso text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">
+                                Freshly Pressed
+                            </span>
+                            <span class="absolute bottom-3.5 right-3.5 bg-white/95 text-dt-forest font-extrabold text-sm px-3.5 py-1.5 rounded-xl shadow">
+                                KES 350
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-serif font-bold text-xl text-dt-forest">State House Passion &amp; Mint Cooler</h3>
+                            <p class="text-dt-espresso/75 text-sm mt-2 leading-relaxed">
+                                Freshly squeezed Kenyan passion fruit, sweet mango nectar, crushed garden mint leaves, and a splash of zesty lime over crystal ice.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button onclick="quickAddItem('State House Passion & Mint Cooler', 350)" class="w-full bg-white hover:bg-dt-forest text-dt-forest hover:text-white border border-dt-forest/20 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-solid fa-plus text-dt-amber"></i>
+                            <span>Add to Order</span>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AMBIANCE & VISUAL GALLERY SECTION -->
+    <section id="gallery" class="py-16 lg:py-24 bg-dt-sand border-y border-dt-forest/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
+                <div>
+                    <span class="text-dt-amber font-extrabold text-xs sm:text-sm uppercase tracking-widest">Atmosphere &amp; Experience</span>
+                    <h2 class="font-serif font-extrabold text-3xl sm:text-4xl text-dt-forest mt-2">
+                        Dine Under the Double Tree Canopy
+                    </h2>
+                </div>
+                <p class="text-dt-espresso/75 text-sm sm:text-base max-w-md">
+                    Whether it’s a quiet business lunch along State House Road, a family Sunday feast, or a cozy evening dinner before 22:00, our spaces adapt to your moment.
+                </p>
+            </div>
+
+            <!-- Bento Visual Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 reveal">
+                <!-- Large Left Feature -->
+                <div class="md:col-span-7 relative rounded-3xl overflow-hidden h-80 sm:h-96 shadow-lush group">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=80" alt="Lush Outdoor Garden Dining" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" onerror="this.onerror=null; this.src='https://placehold.co/800x500/12372A/FFFFFF?text=Lush+Garden+Terrace';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dt-espresso/85 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-wider text-dt-gold">Garden Terrace</span>
+                        <h3 class="font-serif font-bold text-2xl mt-1">Breezy Shaded Tree Seating</h3>
+                        <p class="text-xs sm:text-sm text-amber-100/85 mt-1">Surrounded by lush greenery right off State House Road—ideal for relaxed afternoon conversations.</p>
+                    </div>
+                </div>
+
+                <!-- Right Stacked Cards -->
+                <div class="md:col-span-5 grid grid-rows-2 gap-6">
+                    <div class="relative rounded-3xl overflow-hidden h-44 sm:h-[180px] shadow-warm group">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="Chef Plating Fine Dishes" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" onerror="this.onerror=null; this.src='https://placehold.co/600x300/2C1A12/F59E0B?text=Artisanal+Plating';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dt-espresso/85 via-dt-espresso/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 text-white">
+                            <h3 class="font-serif font-bold text-lg">Artisanal Kenyan &amp; Continental Kitchen</h3>
+                            <p class="text-xs text-amber-100/85">Prepared fresh to order by our Kakamega culinary team.</p>
+                        </div>
+                    </div>
+
+                    <div class="relative rounded-3xl overflow-hidden h-44 sm:h-[180px] shadow-warm group">
+                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Warm Evening Ambiance" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" onerror="this.onerror=null; this.src='https://placehold.co/600x300/1E5631/F59E0B?text=Evening+Dining+Until+22:00';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dt-espresso/85 via-dt-espresso/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 text-white">
+                            <h3 class="font-serif font-bold text-lg">Warm Evening Lantern Dining</h3>
+                            <p class="text-xs text-amber-100/85">Intimate indoor booths &amp; lantern-lit evenings open until 22:00.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE ORDER & TABLE RESERVATION BUILDER -->
+    <section id="order-reserve" class="py-16 lg:py-24 bg-dt-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- Left Column: Live Order Tray / Cart Summary -->
+                <div class="lg:col-span-5 space-y-6 reveal">
+                    <span class="text-dt-amber font-extrabold text-xs sm:text-sm uppercase tracking-widest">Direct Kitchen &amp; Host Desk</span>
+                    <h2 class="font-serif font-extrabold text-3xl sm:text-4xl text-dt-forest">
+                        Reserve a Table or Pre-Order Your Meal
+                    </h2>
+                    <p class="text-dt-espresso/75 text-sm sm:text-base leading-relaxed">
+                        Add dishes from our menu above or reserve your favorite garden table along State House Road. Send your booking directly to our WhatsApp desk (<strong>0715 655 542</strong>) for instant confirmation before our <strong>22:00</strong> closing time.
+                    </p>
+
+                    <!-- Interactive Selected Dishes Tray -->
+                    <div class="bg-white rounded-3xl p-6 border border-dt-forest/15 shadow-warm space-y-4">
+                        <div class="flex items-center justify-between border-b border-dt-sand pb-3">
+                            <h3 class="font-serif font-bold text-lg text-dt-forest flex items-center gap-2">
+                                <i class="fa-solid fa-basket-shopping text-dt-amber"></i> Your Selected Dishes
+                            </h3>
+                            <button type="button" onclick="clearCart()" class="text-xs font-bold text-rose-600 hover:underline">
+                                Clear All
+                            </button>
+                        </div>
+
+                        <div id="cart-items-list" class="space-y-2.5 text-sm text-dt-espresso/80 min-h-[64px] flex flex-col justify-center">
+                            <p class="text-xs text-dt-espresso/55 italic text-center py-3">
+                                No dishes added yet — tap "+ Add to Order" on any menu item, or proceed with a table reservation only.
+                            </p>
+                        </div>
+
+                        <div class="border-t border-dt-sand pt-3 flex items-center justify-between font-extrabold text-base text-dt-forest">
+                            <span>Estimated Food Total:</span>
+                            <span id="cart-total">KES 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Booking & Order Form -->
+                <div class="lg:col-span-7 reveal">
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-lush border border-dt-forest/10">
+                        <form id="reservation-form" class="space-y-5">
+                            <!-- Service Mode Toggle -->
+                            <div>
+                                <label class="block text-xs font-extrabold uppercase tracking-wider text-dt-forest mb-2">How Can We Serve You?</label>
+                                <div class="grid grid-cols-3 gap-2.5">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="serviceType" value="Garden / Indoor Table Reservation" checked class="peer sr-only">
+                                        <div class="text-center py-3 px-2 rounded-xl border border-dt-forest/20 bg-dt-cream peer-checked:bg-dt-forest peer-checked:text-white peer-checked:border-dt-forest font-bold text-xs sm:text-sm transition">
+                                            <i class="fa-solid fa-chair block mb-1 text-dt-amber"></i> Dine-In Table
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="serviceType" value="Takeaway / Express Pickup" class="peer sr-only">
+                                        <div class="text-center py-3 px-2 rounded-xl border border-dt-forest/20 bg-dt-cream peer-checked:bg-dt-forest peer-checked:text-white peer-checked:border-dt-forest font-bold text-xs sm:text-sm transition">
+                                            <i class="fa-solid fa-bag-shopping block mb-1 text-dt-amber"></i> Pickup
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="serviceType" value="Kakamega Town Delivery" class="peer sr-only">
+                                        <div class="text-center py-3 px-2 rounded-xl border border-dt-forest/20 bg-dt-cream peer-checked:bg-dt-forest peer-checked:text-white peer-checked:border-dt-forest font-bold text-xs sm:text-sm transition">
+                                            <i class="fa-solid fa-motorcycle block mb-1 text-dt-amber"></i> Delivery
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="guestName" class="block text-xs font-extrabold uppercase tracking-wider text-dt-forest mb-2">Your Name *</label>
+                                    <input type="text" id="guestName" required placeholder="e.g. Brian Wekesa" class="w-full px-4 py-3 rounded-xl bg-dt-cream border border-dt-forest/15 focus:border-dt-forest focus:ring-2 focus:ring-dt-emerald/20 outline-none text-sm font-medium">
+                                </div>
+                                <div>
+                                    <label for="guestPhone" class="block text-xs font-extrabold uppercase tracking-wider text-dt-forest mb-2">Phone Number *</label>
+                                    <input type="tel" id="guestPhone" required placeholder="e.g. 0715 000 000" class="w-full px-4 py-3 rounded-xl bg-dt-cream border border-dt-forest/15 focus:border-dt-forest focus:ring-2 focus:ring-dt-emerald/20 outline-none text-sm font-medium">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-3 gap-4">
+                                <div>
+                                    <label for="guestCount" class="block text-xs font-extrabold uppercase tracking-wider text-dt-forest mb-2">Guests</label>
+                                    <select id="guestCount" class="w-full px-4 py-3 rounded-xl bg-dt-cream border border-dt-forest/15 focus:border-dt-forest outline-none text-sm font-medium">
+                                        <option value="1 Person">1 Person</option>
+                                        <option value="2 Guests" selected>2 Guests</option>
+                                        <option value="4 Guests">4 Guests</option>
+                                        <option value="6 Guests">6 Guests</option>
+                                        <option value="8+ Group">8+ Group</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="seatingZone" class="block text-xs font-extrabold uppercase tracking-wider text-dt-forest mb-2">Seating Area</label>
+                                    <select id="seatingZone" class="w-full px-4 py-3 rounded-xl bg-dt-cream border border-dt-forest/15 focus:border-dt-forest outline-none text-sm font-medium">
+                                        <option value="Shaded Double Tree Garden">Double Tree Garden</option>
+                                        <option value="Cozy Indoor Dining Room">Cozy Indoor Room</option>
+                                        <option value="Private / Family Corner">Family Corner</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="arrivalTime" class="block text-xs font-extrabold uppercase tracking-wider text-dt-forest mb-2">Time (Closes 22:00)</label>
+                                    <input type="time" id="arrivalTime" value="13:00" max="21:45" required class="w-full px-4 py-3 rounded-xl bg-dt-cream border border-dt-forest/15 focus:border-dt-forest outline-none text-sm font-medium">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="specialNotes" class="block text-xs font-extrabold uppercase tracking-wider text-dt-forest mb-2">Special Requests / Delivery Landmark</label>
+                                <textarea id="specialNotes" rows="2" placeholder="e.g. Extra kachumbari, birthday celebration, or delivery location near State House Rd..." class="w-full px-4 py-3 rounded-xl bg-dt-cream border border-dt-forest/15 focus:border-dt-forest outline-none text-sm font-medium"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-dt-forest hover:bg-dt-emerald text-white font-bold py-4 px-6 rounded-2xl shadow-lush transition flex items-center justify-center gap-2.5 text-base">
+                                <i class="fa-brands fa-whatsapp text-dt-gold text-xl"></i>
+                                <span>Prepare Order &amp; Reservation Slip</span>
+                            </button>
+                        </form>
+
+                        <!-- Confirmation Card -->
+                        <div id="booking-result" class="hidden mt-6 bg-dt-sand border-2 border-dt-forest rounded-2xl p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-dt-forest text-dt-gold flex items-center justify-center">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-serif font-bold text-lg text-dt-forest">Request Ready to Send!</h4>
+                                        <p class="text-xs text-dt-espresso/70">Double Tree Restaurant • State House Rd</p>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="resetReservationForm()" class="text-xs font-bold text-dt-forest underline">Edit</button>
+                            </div>
+
+                            <div id="result-summary" class="bg-white rounded-xl p-4 text-sm space-y-1.5 border border-dt-forest/10 text-dt-espresso"></div>
+
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a id="send-wa-link" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-dt-espresso font-extrabold py-3.5 px-5 rounded-xl shadow transition flex items-center justify-center gap-2 text-sm">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                    <span>Send to 0715 655 542 on WhatsApp</span>
+                                </a>
+                                <a href="tel:+254715655542" class="bg-dt-forest hover:bg-dt-emerald text-white font-bold py-3.5 px-5 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span>Call Desk</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE MAP & LOCATION SECTION (STATE HOUSE RD, KAKAMEGA) -->
+    <section id="location" class="py-16 lg:py-24 bg-dt-espresso text-dt-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Left Info Card -->
+                <div class="lg:col-span-5 flex flex-col justify-between bg-white/5 border border-amber-400/20 rounded-3xl p-7 sm:p-9 space-y-6 reveal">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-2 bg-dt-amber/20 border border-dt-amber/40 text-dt-gold px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-map-pin"></i> Visit Us Today
+                        </div>
+                        <h2 class="font-serif font-extrabold text-3xl sm:text-4xl text-white">
+                            Along State House Rd, Kakamega
+                        </h2>
+                        <p class="text-amber-100/80 text-sm sm:text-base leading-relaxed">
+                            Conveniently situated along State House Road in Kakamega Town—minutes away from Kakamega Golf Hotel, Bukhungu Stadium, and the CBD.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-start gap-3.5 bg-white/5 p-4 rounded-2xl border border-white/10">
+                            <i class="fa-solid fa-clock text-dt-gold text-lg mt-0.5"></i>
+                            <div>
+                                <p class="font-bold text-white">Opening Hours</p>
+                                <p class="text-amber-100/80 text-xs mt-0.5">Monday – Sunday: Open Daily • Closes at 22:00 (10:00 PM)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3.5 bg-white/5 p-4 rounded-2xl border border-white/10">
+                            <i class="fa-solid fa-phone-volume text-emerald-400 text-lg mt-0.5"></i>
+                            <div>
+                                <p class="font-bold text-white">Reservations &amp; Takeaway Line</p>
+                                <a href="tel:+254715655542" class="text-dt-gold hover:underline font-extrabold text-base mt-0.5 inline-block">
+                                    0715 655 542
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Double+Tree+Restaurant+State+House+Road+Kakamega" target="_blank" rel="noopener noreferrer" class="flex-1 bg-dt-amber hover:bg-dt-gold text-dt-espresso font-extrabold py-3.5 px-5 rounded-xl text-center text-sm transition flex items-center justify-center gap-2 shadow-lg">
+                            <i class="fa-solid fa-diamond-turn-right"></i>
+                            <span>Open in Google Maps</span>
+                        </a>
+                        <a href="tel:+254715655542" class="bg-dt-forest hover:bg-dt-emerald text-white font-bold py-3.5 px-5 rounded-xl text-center text-sm transition flex items-center justify-center gap-2 border border-emerald-500/30">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Call Now</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Embedded Map -->
+                <div class="lg:col-span-7 reveal">
+                    <div class="h-80 sm:h-96 lg:h-full min-h-[380px] rounded-3xl overflow-hidden border-4 border-dt-forest shadow-2xl relative bg-dt-forest">
+                        <iframe 
+                            title="Double Tree Restaurant Location Map - State House Road, Kakamega"
+                            src="https://maps.google.com/maps?q=State%20House%20Road,%20Kakamega,%20Kenya&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                            class="w-full h-full border-0"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-amber-100/60">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-tree text-dt-gold"></i>
+                    <span class="font-bold text-white">Double Tree Restaurant</span>
+                    <span>• Along State House Rd, Kakamega</span>
+                </div>
+                <p>&copy; <span id="year-span"></span> Double Tree Restaurant. Open Daily Until 22:00 • Tel: 0715 655 542</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING MOBILE QUICK ACTION BAR -->
+    <div class="fixed bottom-4 inset-x-4 z-40 sm:hidden flex gap-2.5">
+        <a href="tel:+254715655542" class="flex-1 bg-dt-forest text-white font-bold py-3.5 px-4 rounded-2xl shadow-xl border border-emerald-500/30 flex items-center justify-center gap-2 text-sm">
+            <i class="fa-solid fa-phone text-dt-gold"></i>
+            <span>0715 655 542</span>
+        </a>
+        <a href="#order-reserve" class="flex-1 bg-dt-amber text-dt-espresso font-extrabold py-3.5 px-4 rounded-2xl shadow-xl flex items-center justify-center gap-2 text-sm">
+            <i class="fa-solid fa-utensils"></i>
+            <span>Book / Order</span>
+        </a>
+    </div>
+
+    <!-- TOAST NOTIFICATION FOR CART ADDITIONS -->
+    <div id="toast-banner" class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 hidden bg-dt-forest text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-dt-gold/40 flex items-center gap-3 text-sm font-semibold">
+        <i class="fa-solid fa-circle-check text-dt-gold text-lg"></i>
+        <span id="toast-message">Added to your order!</span>
+    </div>
+
+    <!-- JAVASCRIPT FOR LIVE KENYA TIME STATUS, CART, FILTERS & SCROLL MOTION -->
+    <script>
+        // 1. Footer Year
+        document.getElementById('year-span').textContent = new Date().getFullYear();
+
+        // 2. Dynamic Live Status Calculation for Kenya Time (EAT / UTC+3)
+        function updateRestaurantStatus() {
+            const badge = document.getElementById('live-hours-badge');
+            const ping = document.getElementById('status-ping');
+            const dot = document.getElementById('status-dot');
+
+            try {
+                const now = new Date();
+                const eatTimeStr = now.toLocaleTimeString('en-GB', { timeZone: 'Africa/Nairobi', hour12: false });
+                const [hoursStr, minutesStr] = eatTimeStr.split(':');
+                const hour = parseInt(hoursStr, 10);
+                const minute = parseInt(minutesStr, 10);
+
+                // Restaurant operates 07:00 to 22:00 EAT
+                if (hour >= 7 && hour < 22) {
+                    if (hour === 21) {
+                        const minsLeft = 60 - minute;
+                        badge.textContent = `CLOSING SOON (${minsLeft} MIN LEFT) • CLOSES 22:00`;
+                        ping.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75';
+                        dot.className = 'relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400';
+                    } else {
+                        badge.textContent = 'OPEN NOW • CLOSES AT 22:00';
+                        ping.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75';
+                        dot.className = 'relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400';
+                    }
+                } else {
+                    badge.textContent = 'CLOSED FOR THE NIGHT • OPENS 07:00 (CLOSES 22:00)';
+                    ping.className = 'hidden';
+                    dot.className = 'relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500';
+                }
+            } catch (e) {
+                badge.textContent = 'OPEN DAILY • CLOSES AT 22:00';
+            }
+        }
+        updateRestaurantStatus();
+        setInterval(updateRestaurantStatus, 60000);
+
+        // 3. Mobile Navigation Drawer
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // 4. Interactive Menu Category Filter
+        const menuFilterBtns = document.querySelectorAll('.menu-filter-btn');
+        const menuCards = document.querySelectorAll('.menu-card');
+
+        menuFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                menuFilterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-dt-forest', 'text-white', 'shadow-sm');
+                    b.classList.add('bg-dt-cream', 'text-dt-espresso', 'border', 'border-dt-forest/15');
+                });
+                btn.classList.add('active', 'bg-dt-forest', 'text-white', 'shadow-sm');
+                btn.classList.remove('bg-dt-cream', 'text-dt-espresso', 'border', 'border-dt-forest/15');
+
+                const selectedCat = btn.getAttribute('data-category');
+                menuCards.forEach(card => {
+                    if (selectedCat === 'all' || card.getAttribute('data-category') === selectedCat) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // 5. Interactive Order Cart State
+        let orderCart = [];
+
+        function quickAddItem(name, price) {
+            const existing = orderCart.find(item => item.name === name);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                orderCart.push({ name, price, qty: 1 });
+            }
+            renderCart();
+            showToast(`Added "${name}" to your order`);
+        }
+
+        function updateQty(index, delta) {
+            orderCart[index].qty += delta;
+            if (orderCart[index].qty <= 0) {
+                orderCart.splice(index, 1);
+            }
+            renderCart();
+        }
+
+        function clearCart() {
+            orderCart = [];
+            renderCart();
+        }
+
+        function renderCart() {
+            const listEl = document.getElementById('cart-items-list');
+            const totalEl = document.getElementById('cart-total');
+
+            if (orderCart.length === 0) {
+                listEl.innerHTML = `<p class="text-xs text-dt-espresso/55 italic text-center py-3">No dishes added yet — tap "+ Add to Order" on any menu item, or proceed with a table reservation only.</p>`;
+                totalEl.textContent = 'KES 0';
+                return;
+            }
+
+            let total = 0;
+            listEl.innerHTML = orderCart.map((item, idx) => {
+                const sub = item.price * item.qty;
+                total += sub;
+                return `
+                    <div class="flex items-center justify-between bg-dt-cream px-3.5 py-2.5 rounded-xl border border-dt-forest/10">
+                        <div>
+                            <p class="font-bold text-dt-forest text-xs sm:text-sm">${escapeHtml(item.name)}</p>
+                            <p class="text-[11px] text-dt-espresso/65">KES ${item.price.toLocaleString()} each</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button type="button" onclick="updateQty(${idx}, -1)" class="w-7 h-7 rounded-lg bg-white border border-dt-forest/20 font-bold text-dt-forest hover:bg-dt-sand">-</button>
+                            <span class="font-bold text-xs w-5 text-center">${item.qty}</span>
+                            <button type="button" onclick="updateQty(${idx}, 1)" class="w-7 h-7 rounded-lg bg-white border border-dt-forest/20 font-bold text-dt-forest hover:bg-dt-sand">+</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            totalEl.textContent = `KES ${total.toLocaleString()}`;
+        }
+
+        // Toast Helper
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toast-banner');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('hidden');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => toast.classList.add('hidden'), 2800);
+        }
+
+        // 6. Reservation & Order WhatsApp Submission Builder
+        const resForm = document.getElementById('reservation-form');
+        const resResult = document.getElementById('booking-result');
+
+        resForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const serviceType = document.querySelector('input[name="serviceType"]:checked').value;
+            const guestName = document.getElementById('guestName').value.trim();
+            const guestPhone = document.getElementById('guestPhone').value.trim();
+            const guestCount = document.getElementById('guestCount').value;
+            const seatingZone = document.getElementById('seatingZone').value;
+            const arrivalTime = document.getElementById('arrivalTime').value;
+            const specialNotes = document.getElementById('specialNotes').value.trim();
+
+            let totalCost = 0;
+            const itemsSummary = orderCart.length > 0
+                ? orderCart.map(i => {
+                    totalCost += i.price * i.qty;
+                    return `${i.qty}x ${i.name} (KES ${(i.price * i.qty).toLocaleString()})`;
+                }).join(', ')
+                : 'Table Reservation Only (Ordering at Restaurant)';
+
+            document.getElementById('result-summary').innerHTML = `
+                <p><strong>Service:</strong> ${escapeHtml(serviceType)}</p>
+                <p><strong>Guest:</strong> ${escapeHtml(guestName)} (${escapeHtml(guestPhone)})</p>
+                <p><strong>Party &amp; Area:</strong> ${escapeHtml(guestCount)} • ${escapeHtml(seatingZone)}</p>
+                <p><strong>Time:</strong> ${escapeHtml(arrivalTime)} (Before 22:00 closing)</p>
+                <p><strong>Order:</strong> ${escapeHtml(itemsSummary)}</p>
+                ${totalCost > 0 ? `<p class="font-bold text-dt-forest"><strong>Est. Total:</strong> KES ${totalCost.toLocaleString()}</p>` : ''}
+                ${specialNotes ? `<p><strong>Notes:</strong> ${escapeHtml(specialNotes)}</p>` : ''}
+            `;
+
+            const waMessage = `Hello Double Tree Restaurant (State House Rd, Kakamega),%0A` +
+                `*Request:* ${encodeURIComponent(serviceType)}%0A` +
+                `*Name:* ${encodeURIComponent(guestName)}%0A` +
+                `*Phone:* ${encodeURIComponent(guestPhone)}%0A` +
+                `*Guests & Seating:* ${encodeURIComponent(guestCount)} (${encodeURIComponent(seatingZone)})%0A` +
+                `*Time:* ${encodeURIComponent(arrivalTime)}%0A` +
+                `*Dishes:* ${encodeURIComponent(itemsSummary)}` +
+                (totalCost > 0 ? `%0A*Est. Total:* KES ${totalCost.toLocaleString()}` : '') +
+                (specialNotes ? `%0A*Notes:* ${encodeURIComponent(specialNotes)}` : '');
+
+            document.getElementById('send-wa-link').href = `https://wa.me/254715655542?text=${waMessage}`;
+
+            resForm.classList.add('hidden');
+            resResult.classList.remove('hidden');
+        });
+
+        function resetReservationForm() {
+            resResult.classList.add('hidden');
+            resForm.classList.remove('hidden');
+        }
+
+        // 7. Scroll-Triggered Reveal Motion
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // XSS Helper
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
